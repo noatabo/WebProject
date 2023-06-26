@@ -1,0 +1,6 @@
+.infopanel {
+    position: absolute;
+    right: 0;
+    width: 75%;
+    overflow-y: scroll;
+}

@@ -1,0 +1,13 @@
+body {
+    background-color: #F2E2CE !important;
+}
+
+.clink {
+    color: #DE681D !important;
+    text-decoration: none !important;
+}
+
+.btn-primary {
+    background-color: #DE681D !important;
+    border: none !important;
+}

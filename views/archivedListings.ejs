@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/users.css" rel="stylesheet">
+
+    <title>Users</title>
+</head>
+
+<body>
+    <%= console.log("locals email "+Items.listings) %>
+<%- include('partials/_nav', {Email:locals.userName})%>
+<%- include('partials/_adminSide', {Email:locals.userName, ActiveListings: activeListingsAmount, userAmount:usersAmount,ArchivedListings:Items.listings.length})%>
+<div class=" cardscontainer row xl-4 l-3 m-2 s-1" id="listingsShowcase">
+        <% if (Items.listings.length> 0) {%>
+            <% for(var i=0; i < Items.listings.length; i++) {%>
+                <div class="card col-4 ml-8 me-3 mb-3 p-0" style="width: 20rem; height: 50%">
+                    <img src="<%= Items.listings[i].photo%>" class="card-img-top w-100 h-50" alt="">
+                    <div class="card-body p-3">
+                        <p class="h3">
+                            <%= Items.listings[i].name %>
+                        </p>
+                        <p class="card-text fs-5">
+                            <%= Items.listings[i].artist %>, <%= Items.listings[i].release %>
+                        </p>
+                        <ul>
+                            <li>
+                                Seller: <a class="link" href="/users/<%=Items.listings[i].listedBy%>">
+                                    <%= listingsUsers.get(Items.listings[i]._id.toString()).userName %>
+                                </a>
+                            </li>
+                            <li>
+                                <%- console.log("----------------------user " + idToUserMap.get(Items.listings[i].acceptedBidder.toString()) )%>
+                            Buyer: <a class=" link" href="/users/<%=Items.listings[i].acceptedBidder%>">
+                                    <%= idToUserMap.get(Items.listings[i].acceptedBidder.toString()).userName%> </a>
+                            </li>
+                            <li>
+                                Price : <%= Items.listings[i].acceptedBid %> $
+                            </li>
+                            <li>
+                                Date : <%= (Items.listings[i].acceptedBidDate.getUTCDate()) + '/' +
+                                    (Items.listings[i].acceptedBidDate.getUTCMonth()+1) + '/' +
+                                    Items.listings[i].acceptedBidDate.getUTCFullYear()%>
+                            </li>
+                        </ul>
+
+                        <small class="text-muted d-block m-1">Listing Id: <%= Items.listings[i]._id %> </small>
+
+                    </div>
+                </div>
+                <% }%>
+                    <%}%>
+                        </ul>
+
+                        </div>
+
+                        <script src="/scripts/users.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/newListing.css" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+    <script src="../scripts/listings.js"></script>
+
+
+    <title>New Listing</title>
+</head>
+
+<body>
+    <% console.log("locals email new listing "+locals.email)%>
+<%- include('partials/_nav', {Email:locals.userName}) %>
+<div class=" d-flex justify-content-center mt-4" id="searchDiv">
+        <input type="email" class="form-control w-50 justify-items-center" id="albumSearch" aria-describedby="emailHelp"
+            placeholder="search an album...">
+        </div>
+        <div class="row xl-4 l-3 m-2 s-1 m-4 d-flex justify-content-center" id="albums">
+        </div>
+        <form action="/listings/postNew" method="post" id="newListingForm">
+            <div class="jumbotron d-flex align-items-center justify-content-center">
+                <div class="input-group w-25 m-4 container text-center">
+                    <div class="input-group mb-3 border p-3">
+                        <label for="bid" class="form-label me-4 mt-2 mb-3">Starting Bid:</label>
+                        <span class="input-group-text">$</span>
+                        <input type="number" id="bid" name="bid" class="form-control w-25">
+                        <p class="mt-4 me-3 h5 d-inline">Upload A Photo Of Your Vinyl:</p>
+                        <input class="d-inline mt-1" type="file" id="photo" name="photo" accept="image/png, image/jpeg">
+                    </div>
+
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <button type="submit" class="btn btn-primary fw-bold m-1 ">Add Listing</button>
+            </div>
+        </form>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+        <script src="/scripts/newListing.js"></script>
+</body>
+
+</html>

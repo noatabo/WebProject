@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/sells.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.4/d3.min.js"
+        integrity="sha512-nfUlp2ZWPKWlnAH/OsMeAqRSYBxOdPYeBXwceyw6QqqZ7uTT/s5/eS1hMKphjVBouk0jf/JQ8ULVJRnEqSHkXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <title>Profile</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <%- include('partials/_side',{User:User})%>
+        <%- include('partials/_nav', {Email:locals.userName})%>
+            <div class="infopanel">
+                <div class="row xl-4 l-3 m-2  s-1" id="sellsShowcase">
+                    <% if (Items.length> 0) {%>
+                        <% for(var i=0; i < Items.length; i++) {%>
+                            <%console.log('yesss' + userBidMap.get(ListingsBidsMap.get(Items[i]._id)[0]._id))%>
+                                <div class="card col-4 me-3 mb-3 p-0" style="width: 20rem; height: 50%">
+                                    <img src="<%= Items[i].photo%>" class="card-img-top w-100 h-50" alt="">
+                                    <div class="card-body p-3">
+                                        <p class="h3">
+                                            <%= Items[i].name %>
+                                        </p>
+                                        <p class="card-text fs-5">
+                                            <%= Items[i].artist %>, <%= Items[i].release %>
+                                        </p>
+                                        <% if (ListingsBidsMap.get(Items[i]._id).length -1>= 0){%>
+                                            <ul>
+                                                <li>
+                                                    Last bid by: <a class="link"
+                                                        href="/users/<%=ListingsBidsMap.get(Items[i]._id)[ListingsBidsMap.get(Items[i]._id).length -1].bidBy%>">
+                                                        <%=userBidMap.get(ListingsBidsMap.get(Items[i]._id)[ListingsBidsMap.get(Items[i]._id).length
+                                                            -1]._id).userName %>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    Bid : <%=
+                                                        ListingsBidsMap.get(Items[i]._id)[ListingsBidsMap.get(Items[i]._id).length
+                                                        -1].amount %> $
+                                                </li>
+                                                <li>
+                                                    Date : <%=
+                                                        (ListingsBidsMap.get(Items[i]._id)[ListingsBidsMap.get(Items[i]._id).length
+                                                        -1].date.getUTCDate()) + '/' +
+                                                        (ListingsBidsMap.get(Items[i]._id)[ListingsBidsMap.get(Items[i]._id).length
+                                                        -1].date.getUTCMonth()+1) + '/' +
+                                                        ListingsBidsMap.get(Items[i]._id)[ListingsBidsMap.get(Items[i]._id).length
+                                                        -1].date.getUTCFullYear()%>
+                                                </li>
+                                            </ul>
+                                            <%}%>
+                                                <a class="btn btn-primary fw-bold" href=<%="/listings/listing/" +
+                                                    Items[i]._id%>>More Info</a>
+                                                <small class="text-muted d-block m-1">Listing Id: <%= Items[i]._id %>
+                                                </small>
+                                    </div>
+                                </div>
+                                <% }%>
+                                    <%}%>
+                </div>
+            </div>
+            <script src='/scripts/sells.js'></script>
+</body>
+
+</html>

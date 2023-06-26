@@ -1,0 +1,78 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    background-image: url('/uploads/backc.jpg') !important;
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.main-text {
+    margin-left: 25%;
+    margin-top: 7vh;
+    color: #DE681D;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: clamp(0.5rem, 3vw + 4vh, 10rem);
+
+}
+
+@media screen and (max-width: 1000px) {
+    .records-row {
+        padding: 0;
+        margin: 0;
+        bottom: 0;
+        height: 43%;
+        position: relative;
+        overflow: visible !important;
+        overflow-y: visible !important;
+    }
+}
+
+.records-row {
+    margin: 0;
+    bottom: 0;
+    height: 49%;
+    position: absolute;
+    padding-top: 2%;
+    overflow: hidden;
+}
+
+.sell-txt {
+    transition: all 0.8s ease-in-out;
+    transform-origin: 50%;
+    font-size: 3.3rem;
+    font-weight: 600;
+    opacity: 0.6;
+
+}
+
+.explore-txt {
+    transition: all 0.8s ease-in-out;
+    transform-origin: 50%;
+    font-weight: 600;
+    font-size: 3.3rem;
+    opacity: 0.6;
+}
+
+.up {
+    transform: translateY(-2vh);
+    opacity: 1;
+    letter-spacing: 0.1rem;
+}
+
+.record-img {
+    transition: all 0.8s ease-in-out;
+    transform-origin: 50%;
+    height: 40vw;
+}
+
+p {
+    font-size: 2rem;
+}

@@ -1,0 +1,32 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: #DE681D !important;
+    border: none !important;
+}
+
+.container {
+    padding: 5%;
+    background-color: #e2e2e2;
+    border-radius: 4%;
+}
+
+.logo {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.form-outline {
+    font-size: 1.2rem;
+}
+
+.record-img {
+    position: absolute;
+}

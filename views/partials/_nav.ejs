@@ -1,0 +1,117 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+    <link href="/css/nav.css" rel="stylesheet">
+    <script src="../scripts/nav.js"></script>
+    <script src="/scripts/notifications.js" type="application/javascript"></script>
+
+
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <!-- container for responsiveness -->
+    <div class="container-fluid ">
+
+        <!-- first item: brand name -->
+        <a class="navbar-brand ml-4" href="/">VONGO</a>
+        <a class="navbar-brand ml-4" href="#">
+            <%=locals.Email%>
+        </a>
+        <button type="button" class="btn btn-primary cbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fas fa-bell"></i>
+            <span class="badge rounded-pill badge-notification bg-danger" id="notifications_counter">0</span>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Notifications</h1>
+                        <button type="button" class="btn-close" onclick="notifications_reset()" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="modal_ul">
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- this div holds everything who is going to collapse inside the button (be careful with the ID. It must match with the button target) -->
+        <div class="collapse navbar-collapse col-4" id="navbarSupportedContent">
+
+            <!-- this list contains the "menu options (items)" such as download, contact, pricing, etc. -->
+            <ul id="my-ul" class="ms-auto navbar-nav">
+
+                <!-- this is an item -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <!-- this is another item -->
+                <%if(locals.Email){%>
+                    <% if (locals.isAdmin){%>
+                        <li>
+                            <a class="nav-link" href="/admin">Admin Panel</a>
+                        </li>
+                        <%}%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users/@me">Profile</a>
+
+                                <%}else{%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                                <%}%>
+                            </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+    <style>
+        .fa-bell {
+            color: black;
+        }
+    </style>
+
+</nav>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+
+<!--<nav class="navbar bg-body-tertiary p-1 width-100">
+    <div class="container-fluid mx-auto text-center p-0">
+        <span class="p-0 d-flex align-items-center">
+            <a class="navtext nav-link d-inline m-1" href="/login">Login</a>
+            <a class="navtext nav-link h5 d-inline m-1" href="#">List A Record</a>
+        </span>
+        <a class="navtext navbar-brand m-0  p-0 logo fw-bolder" href="/">Vongo</a>
+        <span>
+            <a class="navtext nav-link  m-0" href="#">Admin Panel</a>
+        </span>
+    </div>
+</nav>-->

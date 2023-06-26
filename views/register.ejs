@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/register.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/scripts/register.js"></script>
+
+    <title>Profile</title>
+</head>
+
+<body>
+    <%- include('partials/_nav', {Email:locals.email}) %>
+
+        <div class="row align-items-center" style="height: 100vh;">
+            <div class="container mx-auto col-10 col-md-8 col-lg-6 bg-light">
+                <form>
+                    <!--Header-->
+                    <div class="logo row text-center">
+                        <p>VONGO</p>
+                    </div>
+                    <div class="row mx-auto justify-content-center">
+                        <div class="form-outline mb-4 text-center col-md-4 col-lg-3 p-0 mr-1">
+                            <input type="username" id="username_input" class="form-control" />
+                            <label for="floatingInput">Username</label>
+                        </div>
+                        <div class="form-outline mb-4 text-center col-md-4 col-lg-3 p-0 ml-1">
+                            <input class="form-control" list="datalistOptions" id="location_input"
+                                placeholder="Type to search...">
+                            <datalist id="datalistOptions">
+                            </datalist>
+                            <label class="form-label m-1" for="location">Location</label>
+                        </div>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4 mx-auto text-center col-6">
+                        <input type="email" id="email_input" class="form-control" />
+                        <label class="form-label m-1" for="email">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4 mx-auto text-center col-6">
+                        <input type="password" id="password_input" class="form-control" />
+                        <label class="form-label m-1" for="password">Password</label>
+                    </div>
+
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mx-auto text-center justify-content-center">
+                        <!-- Submit button -->
+                        <button type="button" class="btn btn-primary btn-block mb-4 text-center col-2">Register</button>
+                    </div>
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <p>Already a member? <a href="./login">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="/scripts/register_cities.js"></script>
+</body>
+
+</html>

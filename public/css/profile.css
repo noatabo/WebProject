@@ -1,0 +1,55 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #F2E2CE !important;
+}
+
+.activities {
+    font-size: 0.5rem;
+}
+
+.profile-info {
+    font-size: 0.75rem;
+}
+
+.location {
+    text-decoration: none;
+    color: #DE681D;
+    font-size: 0.5rem;
+}
+
+.container {
+    margin-top: 5% !important;
+    margin-left: 20% !important;
+}
+
+.profile {
+    float: left;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 15vh;
+}
+
+
+
+.list-group-item:hover {
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 50%;
+    height: 50%;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+#map {
+    height: 400px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}

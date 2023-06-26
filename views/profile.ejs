@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/profile.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <title>Profile</title>
+</head>
+<script>
+    let map
+</script>
+
+<body onload="initMap('<%=User.Location%>')">
+    <%= console.log("locals email "+locals.email) %>
+    <%if(isProfile){%>
+    <%- include('partials/_side',{User:User})%>
+<%}%>
+    <%- include('partials/_nav', {Email:locals.userName})%>
+
+
+
+    <div class=" container w-50 float-start justify-content-center">
+        <div class="profile m-4 row row-cols-1">
+            <div class="profile-info width-50 float-start  m-1">
+                <img src="<%=User.userPhoto%>" class="profile-img rounded-circle" id="pimg">
+                <div class="input-group">
+                    <%if(isProfile){%>
+                        <form id="newPhotoForm">
+                            <input type="file" class="form-control d-inline" id="newPhoto"
+                                aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                accept="image/png, image/jpeg">
+                            <button class="btn btn-outline-secondary d-inline m-1" type="submit"
+                                id="photoBtn">Upload</button>
+                        </form>
+                        <%}else{%>
+
+                            <%}%>
+
+                </div>
+                <p class="m-1 fs-1">
+                    <%=User.userName%>
+                </p>
+                <!-- Button trigger modal -->
+                <a type="button btn" class="row location m-1 fs-2" data-bs-toggle="modal"
+                    data-bs-target="#locationModal">
+                    <%=User.Location%>
+                </a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Map :</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="map"></div>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row activities col m-4">
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item d-flex justify-content-between align-items-start fs-3" id="sells">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Sells</div>
+                            Active Sells
+                        </div>
+                        <span class="badge bg-primary rounded-pill"><%=User.Sells.length%></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start fs-3" id="orders">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Orders</div>
+                            Previous Orders
+                        </div>
+                        <span class="badge bg-primary rounded-pill"><%=User.Orders.length%></span>
+                    </li>
+                </ol>
+            </div>-->
+        </div>
+
+
+        </div>
+        <div class="data"></div>
+        <script>
+            (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+                key: "<%= GoogleKey%>",
+                // Add other bootstrap parameters as needed, using camel case.
+                // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+            });
+        </script>
+        <script src="../scripts/profile.js"></script>
+</body>
+
+</html>

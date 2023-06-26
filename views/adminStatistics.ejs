@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/statistics.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v6.js"></script>
+
+    <title>Users</title>
+</head>
+
+<body>
+    <script>
+        let users = Users
+        let closedListings = ClosedListings
+        let activeListings = ActiveListings
+
+    </script>
+    <%= console.log("locals email "+locals.email) %>
+<%- include('partials/_nav', {Email:locals.userName})%>
+<%- include('partials/_adminSide', {Email:locals.userName,ActiveListings: ActiveListingsAmount,userAmount:Users.length,ArchivedListings:closedListingsAmount})%>
+
+<div class=" infopanel">
+        <div id="my_dataviz">
+            <span>total sells</span>
+        </div>
+        </div>
+        <script src="/scripts/statistics.js"></script>
+</body>
+
+</html>

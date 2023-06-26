@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/signin.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="/scripts/login.js"></script>
+
+    <title>Login</title>
+</head>
+
+<body>
+    <%- include('partials/_nav') %>
+
+        <div class="row align-items-center" style="height: 100vh;">
+            <div class="container mx-auto col-10 col-md-8 col-lg-6 ">
+                <form>
+                    <!--Header-->
+                    <div class="logo row text-center">
+                        <p>VONGO</p>
+                    </div>
+                    <!-- Email input -->
+                    <div class="form-outline mb-4 mx-auto text-center col-6">
+                        <input type="email" id="email_input" class="form-control" />
+                        <label class="form-label m-1" for="form2Example1">Email address</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4 mx-auto text-center col-6">
+                        <input type="password" id="password_input" class="form-control" />
+                        <label class="form-label m-1" for="form2Example2">Password</label>
+                    </div>
+
+                    <!-- 2 column grid layout for inline styling -->
+                    <div class="row mb-4 mx-auto text-center">
+
+                        <div class="col">
+                            <!-- Simple link -->
+                            <a href="#!">Forgot password?</a>
+                        </div>
+                    </div>
+                    <div class="row mb-4 mx-auto text-center justify-content-center">
+                        <!-- Submit button -->
+                        <button type="button" class="btn btn-primary btn-block mb-4 text-center col-2">Sign in</button>
+                    </div>
+                    <!-- Register buttons -->
+                    <div class="text-center">
+                        <p>Not a member? <a href="register">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--<div class="content float-middle justify-content-center">
+<div class="p-1 float-start col-8 ">
+    <p class="h1 fw-bolder">Login:</p>
+    <form class="fs-3">
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label pt-0 m-1 fw-bold">Username:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label pt-0 m-1 fw-bold">Password:</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary m-1">Sign in</button>
+        <button type="submit" class="btn btn-primary m-1">Sign up</button>
+
+    </form>
+</div>
+<img class="d-inline vol-md-6 align-right record-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Vinyl_record.svg/256px-Vinyl_record.svg.png" >
+
+</div>-->
+
+</body>
+
+</html>

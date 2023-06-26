@@ -1,0 +1,88 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+        integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+        crossorigin="anonymous"></script>
+    <link href="/css/side.css" rel="stylesheet">
+    <script src="/scripts/nav.js"></script>
+    <script src="/scripts/side.js"></script>
+</head>
+<nav id="sidebarMenu " class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+            <a href="/users/@me" id="profile" class="list-group-item list-group-item-action py-2 ripple"
+                onclick="element_clicked('#profile')">
+                <i class="fas fa-tachometer-alt fa-fw me-3 "></i><span>Profile Dash</span>
+            </a>
+            <a id="sells" href="/users/@me/sells" class="list-group-item list-group-item-action py-2 ripple "
+                onclick="element_clicked('#sells')">
+                <i class="fas fa-dollar-sign	 fa-fw me-3"></i><span>Sells</span>
+                <span class="badge  rounded-pill">
+                    <%=User.Sells.length%>
+                </span>
+
+            </a>
+            <a id="orders" href="/users/@me/orders" class="list-group-item list-group-item-action py-2 ripple "
+                onclick="element_clicked('#orders')">
+                <i class="fa fa-cart-plus fa-fw me-3"></i><span>Orders</span>
+                <span class="badge rounded-pill">
+                    <%=User.Orders.length%>
+                </span>
+            </a>
+            <a id="listings" href="/users/@me/listings" class="list-group-item list-group-item-action py-2 ripple "
+                onclick="element_clicked('#listings')"><i
+                    class="fas fa-chart-line fa-fw me-3"></i><span>Listings</span></a>
+            <!--
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    >
+   <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+ </a>
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a
+   >
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    ><i class="fas fa-globe fa-fw me-3"></i
+   ><span>International</span></a
+   >
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    ><i class="fas fa-building fa-fw me-3"></i
+   ><span>Partners</span></a
+   >
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    ><i class="fas fa-calendar fa-fw me-3"></i
+   ><span>Calendar</span></a
+   >
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
+   >
+ <a
+    href="#"
+    class="list-group-item list-group-item-action py-2 ripple"
+    ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
+   >-->
+        </div>
+    </div>
+</nav>
