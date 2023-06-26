@@ -1,6 +1,6 @@
 const express = require("express")
 const mongoose = require('mongoose');
-const connectionString = 'mongodb+srv://noatabo:Nytnyt123@cluster0.zewsjam.mongodb.net/?retryWrites=true&w=majority'
+const connectionString = 'mongodb+srv://noatabo:Nytnyt123@cluster0.zewsjam.mongodb.net/?retryWrites=true&w=majority';
 const http = require('http');
 const socketIo = require('socket.io');
 const socketModule = require('./controllers/socketModule')
@@ -38,8 +38,10 @@ server.listen(8080, () => {
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+}).then(() => {
+  console.log('Connected to MongoDB Atlas');
+}).catch((error) => {
+  console.log("snir efes", error);
 });
 
-mongoose.connection.on('connected', () => {
-  console.log('Connected to MongoDB Atlas');
-});
+

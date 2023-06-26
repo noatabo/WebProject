@@ -16,7 +16,7 @@ body {
 .main-text {
     margin-left: 25%;
     margin-top: 7vh;
-    color: #DE681D;
+    color: #000000;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: clamp(0.5rem, 3vw + 4vh, 10rem);
